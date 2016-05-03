@@ -7,13 +7,18 @@ class BinaryTree
     @right = right
   end
 
+  def sort(nums)
+    self.build!(nums)
+    #self.to_array
+  end
+
+  protected
+
   def build!(nums)
     nums[1..-1].each do |num|
       self.insert(num)
     end
   end
-
-  protected
 
   def insert(num)
     if num < payload
@@ -32,18 +37,10 @@ class BinaryTree
   end
 
   def to_array
-
+    # flatten sorted bt to array
   end
 end
 
 
-
-def binary_tree_sort(array) # returns array of sorted numbers
-  tree = BinaryTree.new(array[0])
-  tree.build!(array)
-  # tree.to_array
-  tree
-end
-
-
-puts binary_tree_sort([7,4,9,1,6,14,10]).inspect
+tree = BinaryTree.new(7)
+puts tree.sort([7,4,9,1,6,14,10]).inspect
