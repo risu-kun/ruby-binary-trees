@@ -9,7 +9,7 @@ class BinaryTree
 
   def sort(nums)
     self.build!(nums)
-    #self.to_array
+    self.to_array
   end
 
   protected
@@ -37,7 +37,21 @@ class BinaryTree
   end
 
   def to_array
-    # flatten sorted bt to array
+    sorted_array = []
+    # if left child exists, recurse
+    if @left
+      sorted_array << @left.to_array
+    end
+
+    # add self to array
+    sorted_array << self.payload
+
+    # add right children to array 
+    if @right
+      sorted_array << @right.to_array
+    end
+
+    sorted_array.flatten
   end
 end
 
