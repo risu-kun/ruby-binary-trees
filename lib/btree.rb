@@ -1,7 +1,7 @@
 class BinaryTree
   attr_accessor :payload, :left, :right
 
-  def initialize(payload, left = nil , right = nil)
+  def initialize(payload = nil, left = nil , right = nil)
     @payload = payload
     @left = left
     @right = right
@@ -15,6 +15,7 @@ class BinaryTree
   protected
 
   def build!(nums)
+    @payload = nums[0]
     nums[1..-1].each do |num|
       self.insert(num)
     end
@@ -56,5 +57,5 @@ class BinaryTree
 end
 
 
-tree = BinaryTree.new(7)
+tree = BinaryTree.new
 puts tree.sort([7,4,9,1,6,14,10]).inspect
